@@ -17,6 +17,7 @@ public class PrzepisActivity extends AppCompatActivity {
     private TextView textViewOpis;
     private ImageView imageView;
     private RatingBar ratingBar;
+    private RatingBar ratingBarZmieniany;
     private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +29,19 @@ public class PrzepisActivity extends AppCompatActivity {
         textViewOpis = findViewById(R.id.textView3);
         imageView = findViewById(R.id.imageView);
         ratingBar = findViewById(R.id.ratingBar);
+        ratingBarZmieniany = findViewById(R.id.ratingbarZmieniany);
         button = findViewById(R.id.button2);
         Przepis przepis = Repozytorium.zwrocPrzepis(nazwaPrzepisu);
         textViewNazwa.setText(przepis.getNazwaPrzepisu());
         textViewOpis.setText(przepis.getSkladniki());
         imageView.setImageResource(przepis.getIdObrazka());
         ratingBar.setRating(przepis.getPolubienia());
-        ratingBar.setOnRatingBarChangeListener(
+        ratingBarZmieniany.setOnRatingBarChangeListener(
                 new RatingBar.OnRatingBarChangeListener() {
                     @Override
                     public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
-                        //TODO:
+                        przepis.setPolubienia((int)v);
+                        ratingBar.setRating(przepis.getPolubienia());
                     }
                 }
         );
