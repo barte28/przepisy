@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Listy1_klasa3a</string>
+    <string-array name="produkty">
+        <item>mleko</item>
+        <item>chleb</item>
+        <item>płatki owsiane</item>
+        <item>kakao</item>
+    </string-array>
+
+
+    <string-array name="kategorie">
+        <item>Ciastka</item>
+        <item>Ciasto</item>
+        <item>Napoje</item>
+    </string-array>
+</resources>
